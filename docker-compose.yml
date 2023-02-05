@@ -32,6 +32,7 @@ services:
     db:
         image: mariadb:10.8
         restart: always
+        container_name: mariadb
         volumes:
              - db-vol:/var/lib/mysql:cached
              - ../dbbackup:/dbbackup:cached
@@ -91,7 +92,10 @@ services:
             - DEDYN_NAME=${DEDYN_NAME}
         networks:
             - internal-network
-    
+    maildev:
+        image: maildev/maildev
+        networks:
+            - internal-network
 networks:
     internal-network:
         driver: bridge
