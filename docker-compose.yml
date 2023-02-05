@@ -92,10 +92,6 @@ services:
             - DEDYN_NAME=${DEDYN_NAME}
         networks:
             - internal-network
-    maildev:
-        image: maildev/maildev
-        networks:
-            - internal-network
 networks:
     internal-network:
         driver: bridge
